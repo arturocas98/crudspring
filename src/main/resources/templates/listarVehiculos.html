@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeLeaf.org>
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>Listar Vehículos</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container-fluid mt-4">
+		
+		<a th:href="@{/}" class="btn btn-primary mb-4">Regresar a menú principal</a>
+		
+		<div class="jumbotron" >
+			<h1> Listado de gestión vehicular </h1>
+		</div>
+		
+		<div class="row" >
+			<div class="col-md-12" >
+				<form th:action="@{/listarVehiculo}"  method="GET" >
+					<div class="form-group d-flex " >
+						<input id="txtSearch"  name="keyword" type="text" class="form-control mr-2" >
+					 	<button type="submit"  class="btn btn-info" > Buscar  </button>
+					</div>
+				 	
+				</form>
+				
+			</div>
+		</div>
+	
+		<a th:href="@{/newVehiculo}" class="btn btn-primary mb-4">Nuevo</a>
+			<table class="table ">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Capacidad de carga</th>
+					<th>Capacidad de pasajeros</th>
+					<th>Chasis </th>
+					<th>Cilindraje</th>
+					<th>Kilometraje</th>
+					<th>Marca</th>
+					<th>Modelo</th>
+					<th>Motor</th>
+					<th>Placa</th>
+					<th>Tipo de vehículo</th>
+					<th>Encargado</th>
+				</tr>
+				</thead>
+			
+			<tbody>
+				<tr th:each="vehiculo:${vehiculos}">
+					<td th:text="${vehiculo.id}"></td>
+					<td th:text=${vehiculo.capacidad_carga}></td>
+					<td th:text=${vehiculo.capacidad_pasajeros}></td>
+					<td th:text=${vehiculo.chasis}></td>
+					<td th:text=${vehiculo.cilindraje}></td>
+					<td th:text=${vehiculo.kilometraje}></td>
+					<td th:text=${vehiculo.marca}></td>
+					<td th:text=${vehiculo.modelo}></td>
+					<td th:text=${vehiculo.motor}></td>
+					<td th:text=${vehiculo.placa}></td>
+					<td th:text=${vehiculo.tipo_vehiculo}></td>
+					<td th:text=${vehiculo.encargado}></td>
+					<td class="d-flex" >
+						<a th:href="@{/editarVehiculo/}+${vehiculo.id}" class = "btn btn-warning mr-2 ">Editar</a>
+						<a th:onclick="eliminarVehiculo([[${vehiculo.id}]])" class = "btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="funciones.js"></script>
+</body>
+</html>

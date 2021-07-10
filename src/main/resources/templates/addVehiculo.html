@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Gestión de flota vehícular</title>
+</head>
+<body>
+	<div class="container mt-4 mb-4 ">
+			<form th:action="@{/saveVehiculo}" th:object=${vehiculo} method="POST">
+				<div class="card">
+						<div class="card-header">
+							<h3>Agregar vehículo</h3>
+						</div>
+						
+						<div class="card-body">
+							
+							<div class="form-group">
+		                        <label > Id </label>
+		                        <input th:field="*{id}" type="text" class="form-control" >
+			                </div>
+							
+							<div class="form-group">
+								<label>Capacidad de carga </label>
+								<input th:field="*{capacidad_carga}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Capacidad de pasajeros</label>
+								<input th:field="*{capacidad_pasajeros}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Chasis</label>
+								<input th:field="*{chasis}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Cilindraje</label>
+								<input th:field="*{cilindraje}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Kilometraje</label>
+								<input th:field="*{kilometraje}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Marca</label>
+								<input th:field="*{marca}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Modelo</label>
+								<input th:field="*{modelo}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Motor</label>
+								<input th:field="*{motor}" type="text" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Placa</label>
+								<input th:field="*{placa}" type="text" class="form-control">
+							</div>
+							
+							 <div class="form-group">
+		                        <label > Tipo de vehículo </label>
+		                     
+		                        <select class="form-control" th:field="*{tipo_vehiculo}" >
+		                            
+		                            
+		                            <option value="Auto">Auto</option>
+		                            <option value="Motocicleta">Motocicleta</option>
+		                            <option value="Camioneta">Camioneta</option>
+		         
+		
+		                        </select>
+		                        
+		
+		                    </div>
+		                    
+		                    <div class="form-group">
+								<label>Encargado</label>
+								<input th:field="*{encargado}" type="text" class="form-control">
+							</div>
+							
+						</div>
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success">
+						<a th:href="@{/listarVehiculo}" class="btn btn-info">Regresar</a>
+					</div>
+					
+			</div>
+			</form>		
+	</div>
+	
+</body>
+</html>

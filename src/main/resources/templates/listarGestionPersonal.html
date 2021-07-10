@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeLeaf.org>
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>Listar Personal</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container-fluid mt-4" >
+		<a th:href="@{/}" class="btn btn-primary mb-4">Regresar a menú principal</a>
+		<div class="jumbotron" >
+			<h1> Listado de gestión personal </h1>
+		</div>
+	
+    	<a  th:href="@{/gestionPersonalAdd}"  class="btn btn-primary mb-4">Nuevo</a>
+    	<table class="table"  >
+    		
+    		<thead>
+    			<tr>
+    				<th>Id</th>
+    				<th>Nombres</th>
+    				<th>Apellidos</th>
+    				<th>Dependencia</th>
+    				<th>Grado Policial</th>
+    				<th>Identificación</th>
+    				<th>Tipo Sangre</th>
+    				<th>Tipo Usuario</th>
+    				<th></th>
+    				
+    			</tr>
+    		</thead>
+    		
+    		<tbody>
+    			<tr th:each="persona:${personas}" >
+    				<td th:text="${persona.id}"></td>
+    				<td th:text="${persona.nombres}"></td>
+    				<td th:text="${persona.apellidos}"></td>
+    				<td th:text="${persona.dependencia}"></td>
+    				<td th:text="${persona.grado_policial}"></td>
+    				<td th:text="${persona.identificacion}"></td>
+    				<td th:text="${persona.tipo_sangre}"></td>
+    				<td th:text="${persona.tipo_usuario}"></td>
+    				<td class="d-flex" >
+    					<a th:href="@{/edit/}+${persona.id}" class="btn btn-warning mr-2">Editar</a>
+    					<a th:onclick="eliminar([[${persona.id}]])" class="btn btn-danger" >Eliminar</a>
+    				</td>
+    				
+    			</tr>
+    		
+    		</tbody>
+    		
+    	
+    	</table>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="funciones.js"></script>
+</body>
+</html>

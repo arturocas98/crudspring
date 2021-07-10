@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Añadir personal</title>
+</head>
+<body>
+	<div class="container mt-4" >
+        <form th:action="@{/save}" th:object=${persona}  method="POST">
+            <div class="card" >
+                <div class="card-header">
+                    <h3>Agregar persona</h3>
+                </div>
+    
+                <div class="card-body">
+                
+	                <div class="form-group">
+                        <label > Id </label>
+                        <input th:field="*{id}" type="text" class="form-control" >
+	                </div>
+	                
+                    <div class="form-group">
+                        <label > Nombres </label>
+                        <input th:field="*{nombres}" type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label > Apellidos </label>
+                        <input th:field="*{apellidos}" type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label > Fecha de Nacimiento </label>
+                        <input th:field="*{fecha_nacimiento}" type="date" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <label > Dependencia </label>
+                        <select class="form-control" th:field="*{dependencia}" >
+                            
+                            <option value="Zona">Zona</option>
+                            <option value="Subzona">Subzona </option>
+                            <option value="Sector">Sector</option>
+                            
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label > Grado Policial </label>
+                        <select class="form-control" th:field="*{grado_policial}" >
+                            <option value="Tiente Coronel">Teniente Coronel</option>
+                            <option value="Mayor">Mayor </option>
+                            <option value="Capitán">Capitán</option>
+                            <option value="Teniente">Teniente</option>
+                            <option value="Subteniente"> Subteniente </option>
+                            <option value="Suboficial Segundo"> Suboficial segundo </option>
+                            <option value="Sargento Primero">Sargento Primero  </option>
+                            <option value="Sargento Segundo"> Sargento Segundo </option>
+                            <option value="Cabo Primero">Cabo Primero </option>
+                            <option value="Cabo Segundo"> Cabo Segundo </option>
+                            <option value="Policía">Policía</option>
+                        </select>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label > Identificacion </label>
+                        <input th:field="*{identificacion}" type="text" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <label > Telefono </label>
+                        <input th:field="*{telefono}" type="text" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <label > Tipo de usuario </label>
+                     
+                        <select class="form-control" th:field="*{tipo_usuario}" >
+                            
+                            <option value="Logística">Logística</option>
+                            <option value="Auxiliar de Logística">Auxiliar de Logística </option>
+                            <option value="Alta Gerencia">Alta Gerencia</option>
+                            <option value="Personal Policial">Personal Policial</option>
+
+                        </select>
+                        
+
+                    </div>
+
+                    <div class="form-group">
+                        <label > Tipo de sangre </label>
+
+
+                        <select class="form-control" th:field="*{tipo_sangre}" >
+                            
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+
+                            
+                        </select>
+
+                    </div>
+
+
+                    
+
+                </div>
+    
+                <div class="card-footer">
+                    <input type="submit" value="Guardar" class="btn btn-success " >
+                    <a th:href="@{/gestionPersonalList}" class="btn btn-info">Regresar</a>
+                </div>
+    
+            </div>
+        </form>
+    	
+    </div>
+	
+</body>
+</html>
